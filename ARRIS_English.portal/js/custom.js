@@ -67,8 +67,8 @@ $(function() {
 		var $post = $.post("check.php?dynamic=true", {
 			"key1": $("input[name=key1]").val()
 		});
-		$post.done(function(data) {
-			var validKey = data == "true";
+		$post.done(function(validKey) {
+			var validKey = data == "authenticated";
 			var $alert = validKey?  $MakeAlertSuccess("Access granted, please wait while services are being restarted...") :
 									$MakeAlertWarning("The password you've entered is incorrect, please try again.");
 			$ShowAlert($alert);
